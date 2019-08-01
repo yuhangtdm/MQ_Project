@@ -42,6 +42,13 @@ public class MessageConsumerTest {
                     TextMessage textMessage = (TextMessage) message;
                     try {
                         System.out.println("我收到消息:" + textMessage.getText());
+                        System.out.println(textMessage.getJMSMessageID()+"---"
+                                                +textMessage.getJMSDeliveryMode()+"---"
+                                                +textMessage.getJMSTimestamp()+"---"
+                                                +textMessage.getJMSExpiration()+"---"
+                                                +textMessage.getJMSPriority()+"---"
+                                                +textMessage.getJMSCorrelationID());
+                        System.out.println(textMessage.getStringProperty("tag"));
                     } catch (JMSException e) {
                         e.printStackTrace();
                     }
